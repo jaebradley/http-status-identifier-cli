@@ -15,9 +15,9 @@ export default class StatusTableCreator {
 
     statuses.forEach((status) => {
       if (hasSupplementaryInformation) {
-        table.push(StatusTableCreator.addSupplementaryInformationRow(status));
+        table.push(StatusTableCreator.createSupplementaryInformationRow(status));
       } else {
-        table.push(StatusTableCreator.addRowWithoutSupplementaryInformation(status));
+        table.push(StatusTableCreator.createRowWithoutSupplementaryInformation(status));
       }
     });
 
@@ -31,29 +31,28 @@ export default class StatusTableCreator {
         this.columnWidth,
         this.longColumnWidth,
       ];
-      return new Table(properties);
+    } else {
+      properties.colWidths = [
+        this.columnWidth,
+        this.columnWidth,
+      ];
     }
-
-    properties.colWidths = [
-      this.columnWidth,
-      this.columnWidth,
-    ];
 
     return new Table(properties);
   }
 
-  static addSupplementaryInformationRow(status) {
+  static createSupplementaryInformationRow(status) {
     return [
-      `Status: ${StatusTableCreator.createTitle(status)}\nMeaning: ${status.definition.description}`,
+      `Status: ${StatusTableCreator.createStatusTitle(status)}\nMeaning: ${status.definition.description}`,
       status.definition.supplementaryInformation,
     ];
   }
 
-  static addRowWithoutSupplementaryInformation(status) {
-    return [StatusTableCreator.createTitle(status), status.definition.description];
+  static createRowWithoutSupplementaryInformation(status) {
+    return [StatusTableCreator.createStatusTitle(status), status.definition.description];
   }
 
-  static createTitle(status) {
+  static createStatusTitle(status) {
     return `${status.definition.name} (${status.definition.code})`;
   }
 }
