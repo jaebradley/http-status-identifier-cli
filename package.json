@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "description": "Identify http status",
   "main": "./build/index.js",
+  "bin": {
+    "hs": "build/executables/hs.js"
+  },
+  "directories": {
+    "lib": "build",
+    "test": "test"
+  },
   "scripts": {
     "compile": "./node_modules/.bin/babel --presets es2015,stage-0 -d build/ src/",
     "coverage": "babel-node ./node_modules/istanbul/lib/cli cover node_modules/mocha/bin/_mocha test --  --recursive --compilers js:babel-core/register",
@@ -25,8 +32,10 @@
   },
   "homepage": "https://github.com/jaebradley/http-status-identifier-cli#readme",
   "dependencies": {
+    "cli-table2": "^0.2.0",
     "commander": "^2.9.0",
-    "http-status-identifier": "^1.0.0"
+    "http-status-identifier": "^1.0.0",
+    "node-emoji": "^1.5.1"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
