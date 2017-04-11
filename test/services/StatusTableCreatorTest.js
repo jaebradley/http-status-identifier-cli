@@ -1,12 +1,14 @@
 'use es6';
 
 import chai from 'chai';
+import Table from 'cli-table2';
 
 import StatusTableCreator from '../../src/services/StatusTableCreator';
 
 const expect = chai.expect;
 
 describe('Status table creator', () => {
+  const tableCreator = new StatusTableCreator();
   const status = {
     definition: {
       name: 'jae',
@@ -32,5 +34,31 @@ describe('Status table creator', () => {
       'the baest of them all',
     ];
     expect(StatusTableCreator.createRowWithFullInformation(status)).to.eql(expected);
+  });
+
+  describe('create initial table', () => {
+    it('creates initial full information table', () => {
+      const properties = {
+        wordWrap: tableCreator.wordWrap,
+        colWidths: [
+          tableCreator.columnWidth,
+          tableCreator.longColumnWidth,
+        ],
+      };
+      const expected = new Table(properties);
+      expect(tableCreator.createInitialTable(true)).to.eql(expected);
+    });
+
+    it('creates initial not full information table', () => {
+      const properties = {
+        wordWrap: tableCreator.wordWrap,
+        colWidths: [
+          tableCreator.columnWidth,
+          tableCreator.columnWidth,
+        ],
+      };
+      const expected = new Table(properties);
+      expect(tableCreator.createInitialTable(false)).to.eql(expected);
+    });
   });
 });

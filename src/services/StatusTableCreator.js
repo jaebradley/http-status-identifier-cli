@@ -6,7 +6,7 @@ export default class StatusTableCreator {
   constructor() {
     this.hAlign = 'center';
     this.columnWidth = 30;
-    this.longColumnWidth = 100;
+    this.longColumnWidth = 60;
     this.wordWrap = true;
   }
 
