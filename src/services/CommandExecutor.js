@@ -10,15 +10,15 @@ export default class CommandExecutor {
     this.tableCreator = new StatusTableCreator();
   }
 
-  execute(statusIdentifiers, hasSupplementaryInformation) {
+  execute(statusIdentifiers, showFullInformation) {
     const statuses = statusIdentifiers.map((statusIdentifier) => {
       this.identifier.identify(statusIdentifier);
     });
     return Promise.all(statuses).then((values) => {
       try {
-        console.log(this.tableCreator.create(values, hasSupplementaryInformation));
+        return this.tableCreator.create(values, showFullInformation);
       } catch (Error) {
-        console.log(`Unable to find HTTP statuses for: ${statusIdentifiers} due to error: ${Error}`);
+        return `Unable to find HTTP statuses for: ${statusIdentifiers} due to error: ${Error}`;
       }
     });
   }

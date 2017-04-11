@@ -12,6 +12,6 @@ program.version(pkg.version)
        .option('-d, --documentation', 'Get documentation')
        .arguments('[statusIdentifiers...]')
        .action((statusIdentifiers) => {
-         executor.execute(statusIdentifiers, program.supplementaryInformation);
+         console.log(executor.execute(statusIdentifiers, program.supplementaryInformation));
        })
        .parse(process.argv);
