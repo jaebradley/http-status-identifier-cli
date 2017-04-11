@@ -10,23 +10,23 @@ export default class StatusTableCreator {
     this.wordWrap = true;
   }
 
-  create(statuses, hasSupplementaryInformation) {
-    const table = this.createInitialTable(hasSupplementaryInformation);
+  create(statuses, showFullInformation) {
+    const table = this.createInitialTable(showFullInformation);
 
     statuses.forEach((status) => {
-      if (hasSupplementaryInformation) {
-        table.push(StatusTableCreator.createSupplementaryInformationRow(status));
+      if (showFullInformation) {
+        table.push(StatusTableCreator.createRowWithFullInformation(status));
       } else {
-        table.push(StatusTableCreator.createRowWithoutSupplementaryInformation(status));
+        table.push(StatusTableCreator.createRowWithStatusMeaning(status));
       }
     });
 
     return table.toString();
   }
 
-  createInitialTable(hasSupplementaryInformation) {
+  createInitialTable(showFullInformation) {
     const properties = { wordWrap: this.wordWrap };
-    if (hasSupplementaryInformation) {
+    if (showFullInformation) {
       properties.colWidths = [
         this.columnWidth,
         this.longColumnWidth,
@@ -41,15 +41,18 @@ export default class StatusTableCreator {
     return new Table(properties);
   }
 
-  static createSupplementaryInformationRow(status) {
+  static createRowWithFullInformation(status) {
     return [
       `Status: ${StatusTableCreator.createStatusTitle(status)}\nMeaning: ${status.definition.description}`,
       status.definition.supplementaryInformation,
     ];
   }
 
-  static createRowWithoutSupplementaryInformation(status) {
-    return [StatusTableCreator.createStatusTitle(status), status.definition.description];
+  static createRowWithStatusMeaning(status) {
+    return [
+      StatusTableCreator.createStatusTitle(status),
+      status.definition.description,
+    ];
   }
 
   static createStatusTitle(status) {

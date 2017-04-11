@@ -12,7 +12,7 @@ export default class CommandExecutor {
 
   execute(statusIdentifiers, hasSupplementaryInformation) {
     const statuses = statusIdentifiers.map((statusIdentifier) => {
-      return this.identifier.identify(statusIdentifier);
+      this.identifier.identify(statusIdentifier);
     });
     return Promise.all(statuses).then((values) => {
       try {

@@ -12,6 +12,7 @@ describe('Status table creator', () => {
       name: 'jae',
       code: 'baebae',
       description: 'bae jadley',
+      supplementaryInformation: 'the baest of them all',
     },
   };
 
@@ -20,8 +21,16 @@ describe('Status table creator', () => {
     expect(StatusTableCreator.createStatusTitle(status)).to.eql(expected);
   });
 
-  it('create row without supplementary information', () => {
+  it('creates row without supplementary information', () => {
     const expected = ['jae (baebae)', 'bae jadley'];
-    expect(StatusTableCreator.createRowWithoutSupplementaryInformation(status)).to.eql(expected);
+    expect(StatusTableCreator.createRowWithStatusMeaning(status)).to.eql(expected);
+  });
+
+  it('creates row with supplementary information', () => {
+    const expected = [
+      'Status: jae (baebae)\nMeaning: bae jadley',
+      'the baest of them all',
+    ];
+    expect(StatusTableCreator.createRowWithFullInformation(status)).to.eql(expected);
   });
 });
