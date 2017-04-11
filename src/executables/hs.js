@@ -8,10 +8,10 @@ import CommandExecutor from '../services/CommandExecutor';
 const executor = new CommandExecutor();
 
 program.version(pkg.version)
-       .option('-s, --supplementaryInformation', 'Has supplementary information')
+       .option('-f, --fullInformation', 'Supply full information')
        .option('-d, --documentation', 'Get documentation')
        .arguments('[statusIdentifiers...]')
        .action((statusIdentifiers) => {
-         executor.execute(statusIdentifiers, program.supplementaryInformation);
+         console.log(executor.execute(statusIdentifiers, program.supplementaryInformation));
        })
        .parse(process.argv);

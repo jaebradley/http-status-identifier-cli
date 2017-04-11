@@ -6,54 +6,56 @@ export default class StatusTableCreator {
   constructor() {
     this.hAlign = 'center';
     this.columnWidth = 30;
-    this.longColumnWidth = 100;
+    this.longColumnWidth = 60;
     this.wordWrap = true;
   }
 
-  create(statuses, hasSupplementaryInformation) {
-    const table = this.createInitialTable(hasSupplementaryInformation);
+  create(statuses, showFullInformation) {
+    const table = this.createInitialTable(showFullInformation);
 
     statuses.forEach((status) => {
-      if (hasSupplementaryInformation) {
-        table.push(StatusTableCreator.addSupplementaryInformationRow(status));
+      if (showFullInformation) {
+        table.push(StatusTableCreator.createRowWithFullInformation(status));
       } else {
-        table.push(StatusTableCreator.addRowWithoutSupplementaryInformation(status));
+        table.push(StatusTableCreator.createRowWithStatusMeaning(status));
       }
     });
 
     return table.toString();
   }
 
-  createInitialTable(hasSupplementaryInformation) {
+  createInitialTable(showFullInformation) {
     const properties = { wordWrap: this.wordWrap };
-    if (hasSupplementaryInformation) {
+    if (showFullInformation) {
       properties.colWidths = [
         this.columnWidth,
         this.longColumnWidth,
       ];
-      return new Table(properties);
+    } else {
+      properties.colWidths = [
+        this.columnWidth,
+        this.columnWidth,
+      ];
     }
-
-    properties.colWidths = [
-      this.columnWidth,
-      this.columnWidth,
-    ];
 
     return new Table(properties);
   }
 
-  static addSupplementaryInformationRow(status) {
+  static createRowWithFullInformation(status) {
     return [
-      `Status: ${StatusTableCreator.createTitle(status)}\nMeaning: ${status.definition.description}`,
+      `Status: ${StatusTableCreator.createStatusTitle(status)}\nMeaning: ${status.definition.description}`,
       status.definition.supplementaryInformation,
     ];
   }
 
-  static addRowWithoutSupplementaryInformation(status) {
-    return [StatusTableCreator.createTitle(status), status.definition.description];
+  static createRowWithStatusMeaning(status) {
+    return [
+      StatusTableCreator.createStatusTitle(status),
+      status.definition.description,
+    ];
   }
 
-  static createTitle(status) {
+  static createStatusTitle(status) {
     return `${status.definition.name} (${status.definition.code})`;
   }
 }
