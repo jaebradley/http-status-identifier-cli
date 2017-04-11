@@ -48,7 +48,7 @@ describe('Command executor', () => {
 
     it('executes without error', () => {
       const statusIdentifiers = ['a', 'b', 'c'];
-      expect(commandExecutor.execute(statusIdentifiers, 'd')).to.become(`Unable to find HTTP statuses for: ${statusIdentifiers} due to error: foo bar`);
+      expect(commandExecutor.execute(statusIdentifiers, 'd')).to.become(`Unable to find HTTP statuses for: ${statusIdentifiers} due to Error: foo bar`);
     });
   });
 });

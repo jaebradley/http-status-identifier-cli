@@ -20,7 +20,7 @@ export default class CommandExecutor {
       try {
         return this.tableCreator.create(values, showFullInformation);
       } catch (Error) {
-        return `Unable to find HTTP statuses for: ${statusIdentifiers} due to error: ${Error}`;
+        return `Unable to find HTTP statuses for: ${statusIdentifiers} due to ${Error}`;
       }
     });
   }
