@@ -1,3 +1,5 @@
+/* eslint array-callback-return: 0 */
+
 'use es6';
 
 import { HttpStatusIdentifier } from 'http-status-identifier';
