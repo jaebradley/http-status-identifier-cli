@@ -1,6 +1,8 @@
 'use es6';
 
 import chai from 'chai';
+import sinon from 'sinon';
+
 import Table from 'cli-table2';
 
 import StatusTableCreator from '../../src/services/StatusTableCreator';
@@ -17,6 +19,13 @@ describe('Status table creator', () => {
       supplementaryInformation: 'the baest of them all',
     },
   };
+
+  it('tests constructor parameters', () => {
+    expect(tableCreator.hAlign).to.equal('center');
+    expect(tableCreator.columnWidth).to.equal(30);
+    expect(tableCreator.longColumnWidth).to.equal(60);
+    expect(tableCreator.wordWrap).to.equal(true);
+  });
 
   it('creates title', () => {
     const expected = 'jae (baebae)';
@@ -59,6 +68,45 @@ describe('Status table creator', () => {
       };
       const expected = new Table(properties);
       expect(tableCreator.createInitialTable(false)).to.eql(expected);
+    });
+  });
+
+  describe('create table', () => {
+    it('creates table with full information', () => {
+      const statuses = [
+        status,
+        status,
+        status,
+      ];
+      const row = [
+        'Status: jae (baebae)\nMeaning: bae jadley',
+        'the baest of them all',
+      ];
+      const expected = [
+        row,
+        row,
+        row,
+      ].toString();
+      const initialTableCreation = sinon.stub(tableCreator, 'createInitialTable').returns([]);
+      expect(tableCreator.create(statuses, true)).to.eql(expected);
+      initialTableCreation.restore();
+    });
+
+    it('creates table with full information', () => {
+      const statuses = [
+        status,
+        status,
+        status,
+      ];
+      const row = ['jae (baebae)', 'bae jadley'];
+      const expected = [
+        row,
+        row,
+        row,
+      ].toString();
+      const initialTableCreation = sinon.stub(tableCreator, 'createInitialTable').returns([]);
+      expect(tableCreator.create(statuses, false)).to.eql(expected);
+      initialTableCreation.restore();
     });
   });
 });
