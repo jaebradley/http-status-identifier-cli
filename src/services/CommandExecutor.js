@@ -1,4 +1,5 @@
 /* eslint array-callback-return: 0 */
+/* eslint arrow-body-style: 0 */
 
 'use es6';
 
@@ -14,7 +15,7 @@ export default class CommandExecutor {
 
   execute(statusIdentifiers, showFullInformation) {
     const statuses = statusIdentifiers.map((statusIdentifier) => {
-      this.identifier.identify(statusIdentifier);
+      return this.identifier.identify(statusIdentifier);
     });
     return Promise.all(statuses).then((values) => {
       try {
