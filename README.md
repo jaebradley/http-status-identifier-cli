@@ -6,7 +6,6 @@
 * [Purpose](https://github.com/jaebradley/http-status-identifier-cli#purpose)
 * [Installation](https://github.com/jaebradley/http-status-identifier-cli#installation)
 * [Usage](https://github.com/jaebradley/http-status-identifier-cli#usage)
-  * [Explanation](https://github.com/jaebradley/http-status-identifier-cli#explanation)
   * [Examples](https://github.com/jaebradley/http-status-identifier-cli#examples)
     * [Get the HTTP Status for HTTP Status Code `200`](https://github.com/jaebradley/http-status-identifier-cli#get-the-http-status-for-http-status-code-200)
     * [Get the HTTP Status for HTTP Status Name `I'm a teapot`](https://github.com/jaebradley/http-status-identifier-cli#get-the-http-status-for-http-status-name-im-a-teapot)
@@ -24,10 +23,6 @@ npm install http-status-identifier-cli -g
 ```
 
 ### Usage
-
-#### Examples
-
-#### Explanation
 The command to identify HTTP statuses is `hs`.
 
 It expects a list of HTTP status codes or HTTP status names. It will return a table containing the HTTP status names, HTTP status codes, and the meaning of the specified HTTP statuses.
@@ -35,6 +30,8 @@ It expects a list of HTTP status codes or HTTP status names. It will return a ta
 If the `-f` (or `--fullDescription`) flag is included, an additional supplementary information field is included that provides even more information into the HTTP status. Sometimes, this field is empty if there is no additional information.
 
 The `-h` (or `--help`) flag is useful if you ever need help.
+
+#### Examples
 
 ##### Get the HTTP Status for HTTP Status Code `200`
 ```
