@@ -9,10 +9,10 @@ const executor = new CommandExecutor();
 
 program.version(pkg.version)
        .option('-f, --fullInformation', 'Supply full information')
-       .option('-d, --documentation', 'Get documentation')
+       .option('-d, --documentation', 'Open documentation in browser')
        .arguments('[statusIdentifiers...]')
        .action((statusIdentifiers) => {
-         executor.execute(statusIdentifiers, program.fullInformation)
+         executor.execute(statusIdentifiers, program.fullInformation, program.documentation)
                  .then(table => console.log(table));
        })
        .parse(process.argv);
