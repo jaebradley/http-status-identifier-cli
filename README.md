@@ -71,4 +71,4 @@ hs 100 "I'm a teapot" 200 "Bad request"
 hs 200 -d
 ```
 
-![alt-text[(http://g.recordit.co/e1QvGJZSJ4.gif)
+![alt-text](http://g.recordit.co/e1QvGJZSJ4.gif)
