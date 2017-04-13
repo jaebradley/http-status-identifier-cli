@@ -12,6 +12,7 @@ export default class CommandExecutor {
   constructor() {
     this.identifier = new HttpStatusIdentifier();
     this.tableCreator = new StatusTableCreator();
+    this.browserPageOpener = open;
   }
 
   execute(statusIdentifiers, showFullInformation, openDocumentation) {
@@ -22,10 +23,12 @@ export default class CommandExecutor {
     return Promise.all(statuses).then((values) => {
       if (openDocumentation) {
         values.forEach((value) => {
-          open(value.definition.documentationUrl);
+          this.browserPageOpener(value.definition.documentationUrl);
         });
       }
 
+      return values;
+    }).then((values) => {
       try {
         return this.tableCreator.create(values, showFullInformation);
       } catch (Error) {
