@@ -1,6 +1,6 @@
 {
   "name": "http-status-identifier-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Identify http status",
   "main": "./build/index.js",
   "bin": {
@@ -35,7 +35,8 @@
     "cli-table2": "^0.2.0",
     "commander": "^2.9.0",
     "http-status-identifier": "^1.0.0",
-    "node-emoji": "^1.5.1"
+    "node-emoji": "^1.5.1",
+    "open": "0.0.5"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
