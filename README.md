@@ -4,6 +4,8 @@
 [![Coverage Status](https://coveralls.io/repos/github/jaebradley/http-status-identifier-cli/badge.svg?branch=master)](https://coveralls.io/github/jaebradley/http-status-identifier-cli?branch=master)
 [![npm version](https://badge.fury.io/js/http-status-identifier-cli.svg)](https://badge.fury.io/js/http-status-identifier-cli)
 
+[![NPM](https://nodei.co/npm/http-status-identifier-cli.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/http-status-identifier-cli/)
+
 * [Purpose](https://github.com/jaebradley/http-status-identifier-cli#purpose)
 * [Installation](https://github.com/jaebradley/http-status-identifier-cli#installation)
 * [Usage](https://github.com/jaebradley/http-status-identifier-cli#usage)
