@@ -13,6 +13,7 @@ program.version(pkg.version)
        .arguments('[statusIdentifiers...]')
        .action((statusIdentifiers) => {
          executor.execute(statusIdentifiers, program.fullInformation, program.documentation)
-                 .then(table => console.log(table));
+         .then(table => console.log(table)) // eslint-disable-line no-console
+         .catch(Error => console.log(`Unable to find HTTP statuses for: ${statusIdentifiers}. Reason: ${Error.reason}`)); // eslint-disable-line no-console
        })
        .parse(process.argv);
