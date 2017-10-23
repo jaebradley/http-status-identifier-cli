@@ -11,9 +11,6 @@ program.version(pkg.version)
        .option('-f, --fullInformation', 'Supply full information')
        .option('-d, --documentation', 'Open documentation in browser')
        .arguments('[statusIdentifiers...]')
-       .action((statusIdentifiers) => {
-         executor.execute(statusIdentifiers, program.fullInformation, program.documentation)
-         .then(table => console.log(table)) // eslint-disable-line no-console
-         .catch(Error => console.log(`Unable to find HTTP statuses for: ${statusIdentifiers}. Reason: ${Error.reason}`)); // eslint-disable-line no-console
-       })
+       // eslint-disable-next-line max-len
+       .action(statusIdentifiers => executor.execute(statusIdentifiers, program.fullInformation, program.documentation))
        .parse(process.argv);
