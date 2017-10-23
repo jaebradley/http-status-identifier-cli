@@ -11,8 +11,6 @@ program.version(pkg.version)
        .option('-f, --fullInformation', 'Supply full information')
        .option('-d, --documentation', 'Open documentation in browser')
        .arguments('[statusIdentifiers...]')
-       .action((statusIdentifiers) => {
-         executor.execute(statusIdentifiers, program.fullInformation, program.documentation)
-                 .then(table => console.log(table));
-       })
+       // eslint-disable-next-line max-len
+       .action(statusIdentifiers => executor.execute(statusIdentifiers, program.fullInformation, program.documentation))
        .parse(process.argv);

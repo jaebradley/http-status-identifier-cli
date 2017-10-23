@@ -29,11 +29,9 @@ export default class CommandExecutor {
 
       return values;
     }).then((values) => {
-      try {
-        return this.tableCreator.create(values, showFullInformation);
-      } catch (Error) {
-        return `Unable to find HTTP statuses for: ${statusIdentifiers} due to ${Error}`;
-      }
-    });
+      // eslint-disable-next-line no-console
+      console.log(this.tableCreator.create(values, showFullInformation));
+    // eslint-disable-next-line no-console
+    }).catch(Error => console.error(`Unable to find HTTP statuses for: ${statusIdentifiers}. Reason: ${Error.reason}`));
   }
 }
