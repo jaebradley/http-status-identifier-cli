@@ -1,6 +1,6 @@
 {
   "name": "http-status-identifier-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Identify http status",
   "bin": {
     "hs": "build/executables/hs.js"
