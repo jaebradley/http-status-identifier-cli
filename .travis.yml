@@ -17,7 +17,7 @@ script:
   - npm run compile
   - npm run test
   - npm run coverage
-after_succes:
+after_success:
   - npm run coveralls
   - npm run semantic-release
 branches:
