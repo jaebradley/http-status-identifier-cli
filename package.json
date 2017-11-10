@@ -19,7 +19,10 @@
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "release": {
-    "branch": "master"
+    "branch": "master",
+    "verifyConditions": {
+    "path": "./node_modules/semantic-release/src/lib/plugin-noop.js"
+  }
   },
   "repository": {
     "type": "git",
