@@ -1,17 +1,17 @@
 language: node_js
-cache:
-  directories:
-    - ~/.npm
-email:
-    recipients:
-      - jae.b.bradley@gmail.com
-    on_success: always
-    on_failure: always
 node_js:
   - '9'
   - '8'
   - '6'
-  - '4'
+cache:
+  directories:
+    - ~/.npm
+notifications:
+  email:
+    recipients:
+      - jae.b.bradley@gmail.com
+    on_success: always
+    on_failure: always
 script:
   - npm run lint
   - npm run test
