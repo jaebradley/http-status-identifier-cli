@@ -12,22 +12,14 @@ notifications:
       - jae.b.bradley@gmail.com
     on_success: always
     on_failure: always
-env:
-  - BUILD_LEADER_ID=6
-stages:
-  - lint
-  - compile
-  - test
-jobs:
-  include:
-    - stage: lint
-      script: npm run lint
-    - stage: compile
-      script: npm run compile
-    - stage: test
-      script: npm run test
-      script: npm run coverage && npm run coveralls
-      after_success: npm run semantic-release
+script:
+  - npm run lint
+  - npm run compile
+  - npm run test
+  - npm run coverage
+after_succes:
+  - npm run coveralls
+  - npm run semantic-release
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
