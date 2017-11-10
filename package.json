@@ -21,11 +21,9 @@
   "release": {
     "branch": "master",
     "analyzeCommits": {
-      "path": "sr-commit-analyzer",
       "preset": "angular"
     },
     "generateNotes": {
-      "path": "sr-release-notes-generator",
       "preset": "angular"
     }
   },
