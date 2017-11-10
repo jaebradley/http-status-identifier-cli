@@ -22,11 +22,11 @@
     "branch": "master",
     "analyzeCommits": {
       "path": "sr-commit-analyzer",
-      "preset": "eslint"
+      "preset": "angular"
     },
     "generateNotes": {
       "path": "sr-release-notes-generator",
-      "preset": "eslint"
+      "preset": "angular"
     }
   },
   "repository": {
