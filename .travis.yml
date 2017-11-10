@@ -15,7 +15,7 @@ notifications:
 stages:
   - lint
   - compile
-  - coverage
+  - test
   - deploy
 jobs:
   include:
@@ -25,7 +25,7 @@ jobs:
       script: npm run compile
     - stage: test
       script: npm run test
-    - stage: coverage
+      script: npm run coverage
       script: npm run coveralls
     - stage: deploy
       script: npm run semantic-release
