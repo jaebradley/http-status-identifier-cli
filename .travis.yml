@@ -16,7 +16,7 @@ stages:
   - lint
   - compile
   - test
-  - deploy
+  - name: deploy
     if: branch = master
 jobs:
   include:
