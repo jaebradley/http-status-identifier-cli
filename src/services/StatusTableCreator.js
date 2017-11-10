@@ -1,5 +1,3 @@
-'use es6';
-
 import Table from 'cli-table2';
 
 export default class StatusTableCreator {

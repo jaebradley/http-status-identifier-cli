@@ -1,8 +1,6 @@
 /* eslint array-callback-return: 0 */
 /* eslint arrow-body-style: 0 */
 
-'use es6';
-
 import { HttpStatusIdentifier } from 'http-status-identifier';
 import open from 'open';
 
