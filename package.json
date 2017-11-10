@@ -20,12 +20,8 @@
   },
   "release": {
     "branch": "master",
-    "analyzeCommits": {
-      "preset": "angular"
-    },
-    "generateNotes": {
-      "preset": "angular"
-    }
+    "analyzeCommits": "@semantic-release/commit-analyzer",
+    "generateNotes": "@semantic-release/release-notes-generator"
   },
   "repository": {
     "type": "git",
