@@ -12,13 +12,20 @@ notifications:
       - jae.b.bradley@gmail.com
     on_success: always
     on_failure: always
-script:
-  - npm run lint
-  - npm run test
-after_script:
-  - npm run coveralls
-after_success:
-  - npm run semantic-release
+stages:
+  - lint
+  - compile
+  - test
+jobs:
+  include:
+    - stage: lint
+      script: npm run lint
+    - stage: compile
+      script: npm run compile
+    - stage: test
+      script: npm run test
+      script: npm run coverage && npm run coveralls
+after_success: npm run semantic-release
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
