@@ -19,9 +19,9 @@ stages:
   - deploy
 jobs:
   include:
-    - stage: lint:
+    - stage: lint
       script: npm run lint
-    - stage: compile:
+    - stage: compile
       script: npm run compile
     - stage: test
       script: npm run test
