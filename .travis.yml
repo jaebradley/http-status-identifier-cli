@@ -25,8 +25,7 @@ jobs:
     - stage: test
       script: npm run test
       script: npm run coverage && npm run coveralls
-deploy:
-  script: npm run semantic-release
+      after_success: npm run semantic-release
   on:
     branch: master
 branches:
