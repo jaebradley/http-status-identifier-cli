@@ -12,6 +12,8 @@ notifications:
       - jae.b.bradley@gmail.com
     on_success: always
     on_failure: always
+env:
+  - BUILD_LEADER_ID=6
 stages:
   - lint
   - compile
