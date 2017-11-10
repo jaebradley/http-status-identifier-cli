@@ -1,6 +1,6 @@
 {
   "name": "http-status-identifier-cli",
-  "version": "0.0.0-semantically-released",
+  "version": "0.0.0-development",
   "description": "Identify http status",
   "bin": {
     "hs": "build/executables/hs.js"
@@ -19,9 +19,7 @@
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "release": {
-    "branch": "master",
-    "analyzeCommits": "@semantic-release/commit-analyzer",
-    "generateNotes": "@semantic-release/release-notes-generator"
+    "branch": "master"
   },
   "repository": {
     "type": "git",
