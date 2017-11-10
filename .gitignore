@@ -40,3 +40,5 @@ coverage/
 coverage.html
 
 build/
+
+.env
