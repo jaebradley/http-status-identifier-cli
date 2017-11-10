@@ -19,6 +19,7 @@ script:
   - npm run coverage
 after_success:
   - npm run coveralls
+  - npm config set loglevel info
   - npm run semantic-release
 branches:
   except:
