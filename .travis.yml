@@ -16,8 +16,6 @@ stages:
   - lint
   - compile
   - test
-  - name: deploy
-    if: branch = master
 jobs:
   include:
     - stage: lint
@@ -27,8 +25,7 @@ jobs:
     - stage: test
       script: npm run test
       script: npm run coverage && npm run coveralls
-    - stage: deploy
-      script: npm run semantic-release
+after_success: npm run semantic-release
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
