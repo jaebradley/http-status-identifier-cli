@@ -1,6 +1,6 @@
 {
   "name": "http-status-identifier-cli",
-  "version": "1.0.2",
+  "version": "0.0.0",
   "description": "Identify http status",
   "bin": {
     "hs": "build/executables/hs.js"
@@ -15,11 +15,22 @@
     "coveralls": "npm run compile && npm run coverage && node_modules/.bin/coveralls < coverage/lcov.info",
     "prepublish": "npm run compile",
     "lint": "eslint src",
-    "test": "npm run compile && mocha --recursive --compilers js:babel-core/register"
+    "test": "npm run compile && mocha --recursive --compilers js:babel-core/register",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "release": {
+    "analyzeCommits": {
+      "path": "sr-commit-analyzer",
+      "preset": "eslint"
+    },
+    "generateNotes": {
+      "path": "sr-release-notes-generator",
+      "preset": "eslint"
+    }
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jaebradley/http-status-identifier-cli.git"
+    "url": "https://github.com/jaebradley/http-status-identifier-cli.git"
   },
   "keywords": [
     "http"
@@ -48,6 +59,7 @@
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
     "chai-immutable": "^1.6.0",
+    "conventional-changelog-eslint": "^0.2.0",
     "coveralls": "^2.13.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.1.3",
@@ -56,7 +68,10 @@
     "istanbul": "^1.0.0-alpha",
     "mocha": "^3.2.0",
     "mocha-lcov-reporter": "^1.3.0",
+    "semantic-release": "^8.2.0",
     "sinon": "^2.1.0",
-    "sinon-chai": "^2.9.0"
+    "sinon-chai": "^2.9.0",
+    "sr-commit-analyzer": "^2.0.3",
+    "sr-release-notes-generator": "^1.1.3"
   }
 }
