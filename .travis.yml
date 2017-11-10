@@ -1,6 +1,24 @@
 language: node_js
 node_js:
-- "7"
-sudo: false
+  - '9'
+  - '8'
+  - '6'
+cache:
+  directories:
+    - ~/.npm
+notifications:
+  email:
+    recipients:
+      - jae.b.bradley@gmail.com
+    on_success: always
+    on_failure: always
 script:
-- npm run coveralls
+  - npm run lint
+  - npm run test
+after_script:
+  - npm run coveralls
+after_success:
+  - npm run semantic-release
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
