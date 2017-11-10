@@ -16,7 +16,6 @@ stages:
   - lint
   - compile
   - test
-  - deploy
 jobs:
   include:
     - stage: lint
@@ -27,6 +26,7 @@ jobs:
       script: npm run test
       script: npm run coverage && npm run coveralls
     - stage: deploy
+      if: branch = master
       script: npm run semantic-release
 branches:
   except:
