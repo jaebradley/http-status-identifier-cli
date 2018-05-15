@@ -17,6 +17,6 @@ const identifyStatuses = ({ statusIdentifiers, options }) => {
   if (openDocumentation) {
     statuses.forEach((status => open(status.definition.documentationUrl)));
   }
-}
+};
 
 export default identifyStatuses;

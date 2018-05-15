@@ -12,6 +12,6 @@ program.version(pkg.version)
   // eslint-disable-next-line max-len
   .action(statusIdentifiers => identifyStatuses({
     statusIdentifiers,
-    options: { fullInformation: program.fullInformation, openDocumentation: program.documentation }
+    options: { fullInformation: program.fullInformation, openDocumentation: program.documentation },
   }))
   .parse(process.argv);
