@@ -1,3 +1,14 @@
 {
-  "presets": ["es2015", "stage-0"]
+  "presets": [
+    "@babel/preset-env"
+  ],
+  "env": {
+    "production": {
+      "presets": ["minify"]
+    }
+  },
+  "ignore": [
+    "node_modules",
+    "*.test.js"
+  ]
 }

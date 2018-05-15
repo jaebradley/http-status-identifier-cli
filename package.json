@@ -1,29 +1,31 @@
 {
   "name": "http-status-identifier-cli",
   "version": "0.0.0-development",
-  "description": "Identify http status",
+  "description": "Identify http status from the command line",
   "bin": {
-    "hs": "build/executables/hs.js"
-  },
-  "directories": {
-    "lib": "build",
-    "test": "test"
+    "hs": "build/index.js"
   },
   "scripts": {
-    "compile": "./node_modules/.bin/babel --presets es2015,stage-0 -d build/ src/",
-    "coverage": "babel-node ./node_modules/istanbul/lib/cli cover node_modules/mocha/bin/_mocha test --  --recursive --compilers js:babel-core/register",
-    "coveralls": "node_modules/.bin/coveralls < coverage/lcov.info",
-    "prepublish": "npm run compile",
+    "codecov": "codecov",
+    "commitmsg": "commitlint -e $GIT_PARAMS",
+    "build": "babel src/ -d build/ --delete-dir-on-start --copy-files",
+    "build:prod": "BABEL_ENV=production npm run build",
     "lint": "eslint --ext .js .",
-    "test": "mocha --recursive --compilers js:babel-core/register",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "test": "jest --coverage --passWithNoTests",
+    "prepublishOnly": "npm run build:prod",
+    "semantic-commit": "commit",
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jaebradley/http-status-identifier-cli.git"
+    "url": "https://github.com/jaebradley/http-status-identifier-cli.git"
   },
   "keywords": [
-    "http"
+    "http",
+    "http status codes",
+    "http cli",
+    "http status code cli"
   ],
   "author": "jae.b.bradley@gmail.com",
   "license": "MIT",
@@ -33,36 +35,32 @@
   "homepage": "https://github.com/jaebradley/http-status-identifier-cli#readme",
   "dependencies": {
     "cli-table2": "^0.2.0",
-    "commander": "^2.9.0",
-    "http-status-identifier": "^1.0.0",
-    "node-emoji": "^1.5.1",
+    "commander": "^2.15.1",
+    "http-status-identifier": "^1.0.1",
+    "node-emoji": "^1.8.1",
     "open": "0.0.5"
   },
   "devDependencies": {
-    "@semantic-release/commit-analyzer": "^4.0.0",
-    "@semantic-release/release-notes-generator": "^5.0.2",
-    "babel-cli": "^6.24.1",
-    "babel-core": "^6.24.1",
-    "babel-eslint": "^7.2.1",
-    "babel-istanbul": "^0.12.2",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "babel-register": "^6.24.1",
-    "chai": "^3.5.0",
-    "chai-as-promised": "^6.0.0",
-    "chai-immutable": "^1.6.0",
-    "conventional-changelog-eslint": "^0.2.0",
-    "coveralls": "^2.13.0",
-    "eslint": "^3.19.0",
-    "eslint-config-airbnb-base": "^11.3.2",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-mocha": "^4.9.0",
-    "istanbul": "^1.0.0-alpha",
-    "mocha": "^3.2.0",
-    "mocha-lcov-reporter": "^1.3.0",
-    "semantic-release": "^8.2.0",
-    "sinon": "^2.1.0",
-    "sinon-chai": "^2.9.0",
-    "travis-deploy-once": "^3.0.0"
+    "@babel/cli": "^7.0.0-beta.46",
+    "@babel/core": "^7.0.0-beta.46",
+    "@babel/preset-env": "^7.0.0-beta.46",
+    "@commitlint/cli": "^6.1.3",
+    "@commitlint/config-angular": "^6.1.3",
+    "@commitlint/prompt": "^6.1.3",
+    "@commitlint/prompt-cli": "^6.1.3",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^22.4.3",
+    "babel-preset-minify": "^0.4.1",
+    "codecov": "^3.0.2",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "husky": "^0.14.3",
+    "jest": "^22.4.3",
+    "semantic-release": "^15.4.1",
+    "travis-deploy-once": "^5.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
