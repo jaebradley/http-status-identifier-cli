@@ -36,7 +36,7 @@
   "dependencies": {
     "cli-table2": "^0.2.0",
     "commander": "^2.15.1",
-    "http-status-identifier": "^1.0.1",
+    "http-status-identifier": "^2.0.1",
     "node-emoji": "^1.8.1",
     "open": "0.0.5"
   },
