@@ -39,21 +39,21 @@ export default class StatusTableCreator {
     return new Table(properties);
   }
 
-  static createRowWithFullInformation(status) {
+  static createRowWithFullInformation({ name, description, supplementaryInformation }) {
     return [
-      `Status: ${StatusTableCreator.createStatusTitle(status)}\nMeaning: ${status.definition.description}`,
-      status.definition.supplementaryInformation,
+      `Status: ${StatusTableCreator.createStatusTitle(name)}\nMeaning: ${description}`,
+      supplementaryInformation,
     ];
   }
 
   static createRowWithStatusMeaning(status) {
     return [
       StatusTableCreator.createStatusTitle(status),
-      status.definition.description,
+      status.description,
     ];
   }
 
-  static createStatusTitle(status) {
-    return `${status.definition.name} (${status.definition.code})`;
+  static createStatusTitle({ name, code }) {
+    return `${name} (${code})`;
   }
 }
