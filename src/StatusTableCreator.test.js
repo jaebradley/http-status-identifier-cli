@@ -5,12 +5,10 @@ import StatusTableCreator from './StatusTableCreator';
 describe('Status table creator', () => {
   const tableCreator = new StatusTableCreator();
   const status = {
-    definition: {
-      name: 'jae',
-      code: 'baebae',
-      description: 'bae jadley',
-      supplementaryInformation: 'the baest of them all',
-    },
+    name: 'jae',
+    code: 'baebae',
+    description: 'bae jadley',
+    supplementaryInformation: 'the baest of them all',
   };
 
   it('tests constructor parameters', () => {

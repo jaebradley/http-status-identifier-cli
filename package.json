@@ -11,7 +11,7 @@
     "build": "babel src/ -d build/ --delete-dir-on-start --copy-files",
     "build:prod": "BABEL_ENV=production npm run build",
     "lint": "eslint --ext .js .",
-    "test": "jest --coverage --passWithNoTests",
+    "test": "jest src",
     "prepublishOnly": "npm run build:prod",
     "semantic-commit": "commit",
     "semantic-release": "semantic-release",
@@ -61,6 +61,7 @@
     "travis-deploy-once": "^5.0.0"
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "collectCoverage": true
   }
 }

@@ -39,9 +39,14 @@ export default class StatusTableCreator {
     return new Table(properties);
   }
 
-  static createRowWithFullInformation({ name, description, supplementaryInformation }) {
+  static createRowWithFullInformation({
+    name,
+    code,
+    description,
+    supplementaryInformation,
+  }) {
     return [
-      `Status: ${StatusTableCreator.createStatusTitle(name)}\nMeaning: ${description}`,
+      `Status: ${StatusTableCreator.createStatusTitle({ name, code })}\nMeaning: ${description}`,
       supplementaryInformation,
     ];
   }
