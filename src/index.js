@@ -11,6 +11,9 @@ program.version(pkg.version)
   .arguments('[statusIdentifiers...]')
   .action(statusIdentifiers => identifyStatuses({
     statusIdentifiers,
-    options: { fullInformation: program.fullInformation, openDocumentation: program.documentation },
+    options: {
+      showFullInformation: program.fullInformation,
+      openDocumentation: program.documentation,
+    },
   }))
   .parse(process.argv);
