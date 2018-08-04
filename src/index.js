@@ -3,13 +3,13 @@
 import program from 'commander';
 
 import pkg from '../package.json';
-import identifyStatuses from './identifyStatuses';
+import cli from './cli';
 
 program.version(pkg.version)
   .option('-f, --fullInformation', 'Supply full information')
   .option('-d, --documentation', 'Open documentation in browser')
   .arguments('[statusIdentifiers...]')
-  .action(statusIdentifiers => identifyStatuses({
+  .action(statusIdentifiers => cli({
     statusIdentifiers,
     options: {
       showFullInformation: program.fullInformation,
