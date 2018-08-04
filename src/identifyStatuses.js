@@ -23,7 +23,8 @@ const identifyStatuses = ({ statusIdentifiers, options }) => {
 
   statusIdentifiers.forEach((statusIdentifer) => {
     try {
-      const status = identifyStatus(statusIdentifer);
+      const formattedStatusIdentifier = statusIdentifer.toUpperCase();
+      const status = identifyStatus(formattedStatusIdentifier);
       if (status) {
         statuses.push(status);
       }
