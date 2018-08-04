@@ -2,9 +2,6 @@ import {
   identifyStatus,
   HttpStatusFamily,
 } from 'http-status-identifier';
-import open from 'open';
-
-import StatusTableCreator from './StatusTableCreator';
 
 const NUMERICAL_FAMILIES = Object.freeze({
   '1XX': HttpStatusFamily.INFORMATIONAL,
@@ -14,11 +11,7 @@ const NUMERICAL_FAMILIES = Object.freeze({
   '5XX': HttpStatusFamily.SERVER_ERROR,
 });
 
-const identifyStatuses = ({ statusIdentifiers, options }) => {
-  const {
-    showFullInformation,
-    openDocumentation,
-  } = options;
+const identifyStatuses = (statusIdentifiers) => {
   const statuses = [];
 
   statusIdentifiers.forEach((statusIdentifer) => {
@@ -39,17 +32,14 @@ const identifyStatuses = ({ statusIdentifiers, options }) => {
           family.statuses.forEach(status => statuses.push(status));
         }
       } catch (statusFamilyError) {
-        // unable to identify family
+        // unable to identify statuses or families
+        // not much we can do here
+        // instead of erroring, let's just "swallow" this inability to identify the statuses
+        // so we can output values for remaining values
       }
     }
   });
-
-  const tableCreator = new StatusTableCreator();
-  console.log(tableCreator.create(statuses, showFullInformation));
-
-  if (openDocumentation) {
-    statuses.forEach((status => open(status.documentationUrl)));
-  }
+  return statuses;
 };
 
 export default identifyStatuses;
