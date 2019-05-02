@@ -11,6 +11,7 @@ const cli = ({ statusIdentifiers, options }) => {
     openDocumentation,
   } = options;
 
+  // eslint-disable-next-line no-console
   console.log(new StatusTableCreator().create(statuses, showFullInformation));
 
   if (openDocumentation) {
