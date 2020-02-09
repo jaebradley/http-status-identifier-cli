@@ -15,7 +15,7 @@ const cli = ({ statusIdentifiers, options }) => {
   console.log(new StatusTableCreator().create(statuses, showFullInformation));
 
   if (openDocumentation) {
-    statuses.forEach((status => open(status.documentationUrl)));
+    statuses.forEach(((status) => open(status.documentationUrl)));
   }
 };
 

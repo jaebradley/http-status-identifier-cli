@@ -9,7 +9,7 @@ program.version(pkg.version)
   .option('-f, --fullInformation', 'Supply full information')
   .option('-d, --documentation', 'Open documentation in browser')
   .arguments('[statusIdentifiers...]')
-  .action(statusIdentifiers => cli({
+  .action((statusIdentifiers) => cli({
     statusIdentifiers,
     options: {
       showFullInformation: program.fullInformation,

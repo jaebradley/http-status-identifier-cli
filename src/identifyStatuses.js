@@ -29,7 +29,7 @@ const identifyStatuses = (statusIdentifiers) => {
         const family = HttpStatusFamily[formattedStatusIdentifier]
           || NUMERICAL_FAMILIES[formattedStatusIdentifier];
         if (family && family.statuses) {
-          family.statuses.forEach(status => statuses.push(status));
+          family.statuses.forEach((status) => statuses.push(status));
         }
       } catch (statusFamilyError) {
         // unable to identify statuses or families
