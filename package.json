@@ -35,7 +35,7 @@
   "homepage": "https://github.com/jaebradley/http-status-identifier-cli#readme",
   "dependencies": {
     "cli-table3": "^0.6.0",
-    "commander": "^5.0.0",
+    "commander": "^5.1.0",
     "http-status-identifier": "^2.0.1",
     "open": "^7.0.2",
     "node-emoji": "^1.10.0"
