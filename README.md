@@ -1,7 +1,6 @@
 # HTTP Status Identifier CLI
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/jaebradley/http-status-identifier-cli.svg)](https://greenkeeper.io/)
-[![Build Status](https://travis-ci.org/jaebradley/http-status-identifier-cli.svg?branch=master)](https://travis-ci.org/jaebradley/http-status-identifier-cli)
+![HTTP Status Identifier CLI](https://github.com/jaebradley/http-status-identifier-cli/workflows/HTTP%20Status%20Identifier%20CLI/badge.svg)
 [![npm](https://img.shields.io/npm/dt/http-status-identifier-cli.svg)](https://www.npmjs.com/package/http-status-identifier-cli)
 [![npm version](https://badge.fury.io/js/http-status-identifier-cli.svg)](https://badge.fury.io/js/http-status-identifier-cli)
 
