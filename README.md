@@ -1,5 +1,6 @@
 # HTTP Status Identifier CLI
 
+![HTTP Status Identifier CLI](https://github.com/jaebradley/http-status-identifier-cli/workflows/HTTP%20Status%20Identifier%20CLI/badge.svg)
 [![npm](https://img.shields.io/npm/dt/http-status-identifier-cli.svg)](https://www.npmjs.com/package/http-status-identifier-cli)
 [![npm version](https://badge.fury.io/js/http-status-identifier-cli.svg)](https://badge.fury.io/js/http-status-identifier-cli)
 
